@@ -24,7 +24,9 @@ const SignupSchema = new Schema({
         type:String,
         required:true
     },
-    
+    address:{
+        type:String,
+        required:true
     },
 });
 mongoose.model('signup',SignupSchema);
