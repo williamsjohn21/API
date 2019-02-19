@@ -125,7 +125,6 @@ app.post('/Model/login',(req, res) =>{
     }
 });
 //process
-app.listen(port, () => {
-    console.log(`pplication started${port}`);
+aon started${port}`);
 
 });
