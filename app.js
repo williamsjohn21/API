@@ -33,9 +33,12 @@ require('./Model/dashboard');
 //const dashboard = mongoose.model('dashboard');
 
 
+
+
 //process singup route
 app.post('/Model/signup',(req, res) =>{
     let errors = [];
+    let isAdmin = false
     if(!req.body.firstname){
         errors.push({text:'please kindly enter firstname'});
     }
@@ -50,6 +53,10 @@ app.post('/Model/signup',(req, res) =>{
 
     if(!req.body.password){
         errors.push({text:'please kindly enter password'});
+    }
+
+    if(req.body.isAdmin){
+        isAdmin = true
     }
     if(errors.length > 0){
         res.json({
@@ -68,7 +75,8 @@ app.post('/Model/signup',(req, res) =>{
             email : req.body.email,
             password : req.body.password,
             confirmpassword : req.body.confirmpassword,
-            address : req.body.confirmpassword
+            address : req.body.confirmpassword,
+            isAdmin: isAdmin
         }
         new Signup(newUser)
         .save()
