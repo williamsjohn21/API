@@ -1,3 +1,4 @@
+                    
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -28,5 +29,9 @@ const SignupSchema = new Schema({
         type:String,
         required:true
     },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    }
 });
 mongoose.model('signup',SignupSchema);
